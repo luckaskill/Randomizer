@@ -12,9 +12,8 @@ public class RandomizeResult<T> {
 
     public void sortByValues() {
         List<Map.Entry<T, Long>> entries = new ArrayList<>(result.entrySet());
-        Comparator<Map.Entry<T, Long>> comparator = Map.Entry.comparingByValue();
-        Comparator<Map.Entry<T, Long>> reversed = comparator.reversed();
-        entries.sort(reversed);
+        Comparator<Map.Entry<T, Long>> comparator = Map.Entry.<T, Long>comparingByValue().reversed();
+        entries.sort(comparator);
         Map<T, Long> sortedResult = new LinkedHashMap<>(entries.size());
         for (Map.Entry<T, Long> entry : entries) {
             sortedResult.put(entry.getKey(), entry.getValue());
