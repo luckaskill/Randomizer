@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Randomizer {
-    private static Random random = new Random();
+    private static Random random = new Random(System.currentTimeMillis());
 
     public static <T> RandomizeResult<T> randomize(OptionsContainer<T> options, int repeatCount) {
         if (!options.isFilled()) {
@@ -42,6 +42,7 @@ public class Randomizer {
     }
 
     private static <T> T chooseOne(List<? extends T> list) {
-        return list.get(random.nextInt(list.size()));
+        int index = random.nextInt(list.size());
+        return list.get(index);
     }
 }
