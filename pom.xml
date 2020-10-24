@@ -10,6 +10,7 @@
     <properties>
         <jdk.version>13</jdk.version>
     </properties>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -34,6 +35,17 @@
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.http.las.random.RandomMain</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

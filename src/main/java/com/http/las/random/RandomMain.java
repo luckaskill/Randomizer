@@ -6,17 +6,23 @@ public class RandomMain {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        OptionsContainer<String> container = new OptionsContainer<>(RandomMain::getOptionsFromConsole, true);
-        RandomizeResult<String> randomize = Randomizer.randomize(container, RandomMain::getRepeatCountFromConsole);
-        randomize.sortByValues();
-        System.out.println(randomize);
+        System.out.println("Hi:)\nYou may start to print your options");
+        while (true) {
+            OptionsContainer<String> container = new OptionsContainer<>(RandomMain::getOptionsFromConsole, true);
+            RandomizeResult<String> randomize = Randomizer.randomize(container, RandomMain::getRepeatCountFromConsole);
+            randomize.sortByValues();
+            System.out.println(randomize);
+            System.out.println("Now u can try again");
+        }
     }
 
     private static List<String> getOptionsFromConsole() {
         String option;
         List<String> optionsList = new ArrayList<>();
         while (!((option = getOptionFromConsole()).equals("do"))) {
-            optionsList.add(option);
+            if (!option.trim().isEmpty()) {
+                optionsList.add(option);
+            }
         }
         System.out.println(optionsList);
         return optionsList;
