@@ -8,6 +8,7 @@ public class RandomizeResult<T> {
 
     public RandomizeResult(Map<T, Long> result) {
         this.result = result;
+        sortByValues();
     }
 
     public void sortByValues() {

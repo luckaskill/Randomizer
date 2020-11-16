@@ -7,10 +7,7 @@ import java.util.stream.Collectors;
 public class Randomizer {
     private static Random random = new Random(System.currentTimeMillis());
 
-    public static <T> RandomizeResult<T> randomize(OptionsContainer<T> options, int repeatCount) {
-        if (!options.isFilled()) {
-            options.fill();
-        }
+    public static <T> RandomizeResult<T> randomize(HasOptions<T> options, int repeatCount) {
         List<? extends T> optionsList = options.getOptions();
         List<T> randomResultList = getRandomResult(repeatCount, optionsList);
         Map<T, Long> result = randomResultList.stream()
@@ -36,7 +33,7 @@ public class Randomizer {
         return randomResultList;
     }
 
-    public static <T> RandomizeResult<T> randomize(OptionsContainer<T> options, Supplier<Integer> repeatCountSupplier) {
+    public static <T> RandomizeResult<T> randomize(HasOptions<T> options, Supplier<Integer> repeatCountSupplier) {
         Integer repeatCount = repeatCountSupplier.get();
         return randomize(options, repeatCount);
     }

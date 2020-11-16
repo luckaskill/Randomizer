@@ -10,7 +10,6 @@ public class RandomMain {
         while (true) {
             OptionsContainer<String> container = new OptionsContainer<>(RandomMain::getOptionsFromConsole, true);
             RandomizeResult<String> randomize = Randomizer.randomize(container, RandomMain::getRepeatCountFromConsole);
-            randomize.sortByValues();
             System.out.println(randomize);
             System.out.println("Now u can try again");
         }

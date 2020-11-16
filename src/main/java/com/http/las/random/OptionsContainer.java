@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.util.List;
 
-public class OptionsContainer<T> {
+public class OptionsContainer<T> implements HasOptions<T> {
     @Getter
     private boolean filled = false;
     @Getter
