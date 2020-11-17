@@ -3,7 +3,7 @@ package com.http.las.random;
 import java.util.*;
 
 public class RandomizeResult<T> {
-    public static final String SPLIT = " - ";
+    private static final String SPLIT = " - ";
     private Map<T, Long> result;
 
     public RandomizeResult(Map<T, Long> result) {
@@ -11,7 +11,7 @@ public class RandomizeResult<T> {
         sortByValues();
     }
 
-    public void sortByValues() {
+    private void sortByValues() {
         List<Map.Entry<T, Long>> entries = new ArrayList<>(result.entrySet());
         Comparator<Map.Entry<T, Long>> comparator = Map.Entry.<T, Long>comparingByValue().reversed();
         entries.sort(comparator);
