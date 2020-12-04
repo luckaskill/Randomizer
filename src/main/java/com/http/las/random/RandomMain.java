@@ -18,7 +18,7 @@ public class RandomMain {
     private static List<String> getOptionsFromConsole() {
         String option;
         List<String> optionsList = new ArrayList<>();
-        while (!((option = getOptionFromConsole()).equals("do"))) {
+        while (!((option = getOptionFromConsole()).trim().equals("do"))) {
             if (!option.trim().isEmpty()) {
                 optionsList.add(option);
             }
